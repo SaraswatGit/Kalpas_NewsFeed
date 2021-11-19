@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+.icons:hover {
+  background-color: rgb(171, 218, 102);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.button {
+  background-color: rgb(171, 218, 102);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.button:hover {
+  background-color: rgb(241, 74, 74);
+  cursor: pointer;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.buttonclicked {
+  background-color: rgb(241, 74, 74);
+}
+.buttonclicked:hover {
+  cursor: pointer;
+}
+.toggleclicked {
+  background-color: rgb(171, 218, 102);
+}
+.listitem:hover {
+  background-color: lightgray;
+}
+.submit {
+  background-color: lightgreen;
+}
+.submit:hover {
+  background-color: darkgreen;
+  cursor: pointer;
+}
+.navbutton {
+  font-size: 3vh;
+  border-radius: 50%;
+  height: 5.5vh;
+  width: 5.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(211, 211, 211, 0.552);
+  margin-left: 0.5vw;
+}
+.pagbutton {
+  font-size: 3vh;
+  border-radius: 50%;
+  height: 5.5vh;
+  width: 5.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbutton:hover {
+  font-size: 3vh;
+  background-color: rgba(255, 255, 255, 0.973);
+  cursor: pointer;
+}
+.navbutton:active {
+  font-size: 3vh;
+  background-color: rgba(255, 255, 255, 0.973);
+  cursor: pointer;
+}
+.pagbutton:hover {
+  font-size: 3vh;
+  color: blue;
+  cursor: pointer;
+}
+.grid-display {
+  height: 75vh;
+  margin-top: 10vh;
+  width: 76vw;
+  padding-left: 2vw;
+  padding-bottom: 1vw;
+  display: grid;
+  grid-template-columns: 17vw 17vw 17vw 17vw;
+  grid-column-gap: 2vw;
+  grid-template-rows: 35vh;
+  grid-row-gap: 5vh;
+  overflow: hidden;
+}
+.flex-display {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  height: 75vh;
+  width: 76vw;
+  padding: 2vw;
+  overflow: hidden;
 }
