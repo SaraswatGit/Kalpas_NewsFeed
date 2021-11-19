@@ -24,7 +24,7 @@ function App() {
     });
   }, []);
   return (
-    <cardcontext.Provider value={{ cardview, setcardview }}>
+    <cardcontext.Provider value={{ cardview, setcardview, posts }}>
       <div
         className="App"
         style={{ display: "flex", height: "100vh", width: "100vw" }}

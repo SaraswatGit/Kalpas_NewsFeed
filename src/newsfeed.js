@@ -7,7 +7,7 @@ import { cardcontext } from "./Context/cardviewcontext";
 const Newsfeed = (props) => {
   const [uposts, setuposts] = useState(props.newsdata);
   const [cview, setcview] = useState(props.view);
-  const { cardview, setcardview } = useContext(cardcontext);
+  const { cardview, setcardview, posts } = useContext(cardcontext);
 
   const [fpage, setfpage] = useState(1);
   const [cpage, setcpage] = useState(2);
@@ -15,7 +15,7 @@ const Newsfeed = (props) => {
   const [title, settitle] = useState(3);
   const [desc, setdesc] = useState(3);
   const [newsmodal, setnewsmodal] = useState(false);
-  const [activepage, setactivepage] = useState([]);
+  const [activepage, setactivepage] = useState(posts.slice(0, 8));
   const [activeindex, setactiveindex] = useState(3);
   const [limit, setlimit] = useState(0);
   const deletenews = (id) => {
@@ -31,15 +31,11 @@ const Newsfeed = (props) => {
   }
 
   useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/posts`)
-      .then((res) => {
-        const responseposts = res.data;
-        setuposts(responseposts);
-      })
-      .then(() => {
-        setlimit(Math.ceil(uposts.length / 8));
-      });
+    axios.get(`https://jsonplaceholder.typicode.com/posts`).then((res) => {
+      const responseposts = res.data;
+      setuposts(responseposts);
+      setactivepage(responseposts.slice(0, 8));
+    });
   }, []);
 
   function handlenext() {
@@ -57,13 +53,13 @@ const Newsfeed = (props) => {
     }
   }
 
-  let posts = [];
+  let posts2 = [];
   let i, j;
   for (i = 0, j = 0; i < uposts.length + 8; i += 8, j++) {
-    posts[j] = uposts.slice(i, i + 8);
+    posts2[j] = uposts.slice(i, i + 8);
   }
   function handlenew(num) {
-    setactivepage(posts[num]);
+    setactivepage(posts2[num]);
   }
 
   return (
