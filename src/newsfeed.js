@@ -37,8 +37,9 @@ const Newsfeed = (props) => {
       setactivepage(responseposts.slice(0, 8));
     });
   }, []);
-  let limit = Math.ceil(uposts.length / 8);
   function handlenext() {
+    setlimit(Math.ceil(uposts.length / 8));
+
     if (npage !== limit) {
       setfpage(fpage + 1);
       setcpage(cpage + 1);
