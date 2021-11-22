@@ -16,6 +16,7 @@ function App() {
   const [country, setcountry] = useState("");
   const [email, setemail] = useState("");
   const [number, setnumber] = useState("");
+  const [clicked, setclick] = useState(false);
 
   useEffect(() => {
     axios.get(`https://jsonplaceholder.typicode.com/posts`).then((res) => {
@@ -212,9 +213,13 @@ function App() {
               onChange={(event) => {
                 setinput(event.target.value);
                 setshowcountrylist(true);
+                setclick(false);
+              }}
+              onClick={() => {
+                setclick(false);
               }}
               autocomplete="new-password"
-              value={input}
+              value={clicked ? country : input}
             />
             {showcountrylist && (
               <div
@@ -223,7 +228,9 @@ function App() {
                   paddingTop: "0.5vh",
                   paddingLeft: "0.5vh",
                   backgroundColor: "white",
-                  height: "30vh",
+                  maxHeight: "30vh",
+                  position: "absolute",
+                  marginTop: "62vh",
                   overflow: "auto",
                 }}
               >
@@ -248,6 +255,7 @@ function App() {
                         className="listitem"
                         onClick={() => {
                           setcountry(val);
+                          setclick(true);
                           setshowcountrylist(false);
                         }}
                       >
